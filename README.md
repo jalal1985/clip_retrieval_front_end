@@ -4,12 +4,13 @@ This application has no database setup, but it is able to save data into the pin
 ## Setup with docker
 1. First add gcs-frontend.loc to your hosts file, for *nix based systems it will be located in `/etc/hosts` please note you will have to use elevated permissions (sudo) to be able to edit this file.
 2. If you want to use docker, please ensure you have it installed on your system
-3. To run it in docker use:
+3. To run it in docker and force recreation of the container (needed because of nuxt bug) use:
 ```bash
-docker compose up -d
+docker compose up -d --force-recreate
 ```
-4. If you want to use SSL, please use the docker-nginx container (ask Gideon) to run a reverse proxy and read the readme in that project to generate your local certificates.
-5. You should be able to get to the project by going to http://gcs-frontend.loc
+4. If you want to use SSL, please use the docker-nginx container (ask Gideon) to run a reverse proxy and read the readme in that project to generate your local certificates. If not skip the next steps and check the Development Server (local) for the right url.
+5. Add 
+5. You should be able to get to the project by going to http://ai-fashion.loc
 
 
 ## Setup locally

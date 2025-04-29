@@ -32,4 +32,3 @@ This component has no dependencies, if it did it will be explained here external
 
 ### External links
 1. [GCS](https://g-c-s.tech "Gideon Central Service")
-2. [Ictcentrale](https://ictcentrale.nl "Ictcentrale") 

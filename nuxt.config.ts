@@ -26,7 +26,7 @@ export default defineNuxtConfig({
     app: {
         buildAssetsDir: '/_nuxt/',
         head: {
-            title: 'GCS - Frontend',
+            title: 'AI-fashion | DEMO ',
             charset: 'utf-8',
             viewport: 'width=device-width, initial-scale=1',
             htmlAttrs: {
@@ -42,7 +42,7 @@ export default defineNuxtConfig({
                 {
                     rel: 'icon',
                     type: 'image/x-icon',
-                    href: '/images/favicon.ico',
+                    href: '/favicon.ico',
                     sizes: '',
                 },
             ]
@@ -52,7 +52,7 @@ export default defineNuxtConfig({
     //     server: {
     //         hmr: {
     //             protocol: 'wss',
-    //             host: 'gcs_frontend',
+    //             host: 'ai_fashion_frontend',
     //             port: 24678,
     //             clientPort: 24678,
     //         },
