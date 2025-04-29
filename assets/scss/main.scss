@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+// abstracts
+@import "abstracts/colors";
+
+// base
+@import "base/default";
+@import "base/loader";
+
+// components
+@import "components/header";
+
+.main-layout {
+    grid-template-rows: 4rem 1fr 3rem;
+}

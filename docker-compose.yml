@@ -1,0 +1,36 @@
+services:
+  vue:
+    image: node:22.13-alpine3.20
+    user: node
+    ports:
+      - '433:433'  # https
+      - '3000:3000' # Nuxt app
+      - '24678:24678' # Vite HRM
+    environment:
+      - NITRO_PRESET=node
+    container_name: ai_fashion_frontend
+    working_dir: /usr/src/app
+    command: sh -c "npm install && npm run dev"
+    volumes:
+      - .:/usr/src/app:cached
+    env_file:
+      - .env
+  nginx:
+    image: nginx:1.27
+    container_name: ai_fashion_frontend_nginx
+    environment:
+      - VIRTUAL_HOST=ai-fashion.loc
+    networks:
+      default:
+        aliases:
+          - ai-fashion.loc
+    links:
+      - vue
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - ./logs/nginx:/var/log/nginx:cached
+      - .:/data/www:cached
+networks:
+  default:
+    name: nginx-proxy
+    external: true
