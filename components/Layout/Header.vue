@@ -1,5 +1,5 @@
 <template>
-    <header class="w-full h-16 flex justify-center bg-sky-500">
+    <header class="w-full h-16 flex justify-center bg-white">
         <div class="container flex">
             <nav class="flex items-center grow-0">
                 <ul class="main-nav">
@@ -23,7 +23,7 @@
                 Logo
             </div>
 
-            <div class="flex items-center grow-0 uppercase pl-1">
+            <div class="flex items-center grow-0 uppercase pl-1 text-sm">
                 eur
             </div>
         </div>
