@@ -1,5 +1,5 @@
 <template>
-  <div class="grid min-h-screen main-layout bg-slate-200">
+  <div class="grid min-h-screen main-layout bg-white">
       <LayoutHeader/>
       <NuxtPage/>
       <LayoutFooter/>
