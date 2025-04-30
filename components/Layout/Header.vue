@@ -8,9 +8,10 @@
                             <!-- TODO the hydration mismatch is weird because house is part of the fas icon pack, disabled server side rendering for now -->
                             <ClientOnly>
                                 <FontAwesomeIcon
-                                    :icon="['fas', 'house']"
+                                    :icon="['fas', 'bars']"
                                     :size="'xl'"
                                     :title="menu.home.nl"
+                                    :class="'text-black'"
                                     alt="menu.home.nl"
                                 />
                             </ClientOnly>
@@ -20,7 +21,9 @@
             </nav>
 
             <div class="flex justify-center items-center grow">
-                Logo
+                <NuxtLink to="/" class="text-black no-underline">
+                    Logo
+                </NuxtLink>
             </div>
 
             <div class="flex items-center grow-0 uppercase pl-1 text-sm">

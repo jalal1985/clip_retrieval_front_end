@@ -4,13 +4,17 @@
 
 
             <div
-                class="grid grid-cols-2 gap-15px"
+                class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-15px"
             >
                 <TileBase
                     v-for="model in models"
                     :url="model.url"
+                    :class="'px-0 py-0'"
+                    @click="selectedModel = model.id"
                 >
-                    test
+                    <template #name>
+                        <span class="model__name text-slate-400 text-center text-sm absolute bottom-0 left-0 right-0 m-auto">{{ model.name }}</span>
+                    </template>
                 </TileBase>
             </div>
         </div>
@@ -18,10 +22,18 @@
 </template>
 
 <script setup lang="ts">
+import {storeToRefs} from "pinia";
+import {useModelStore} from "~/stores/model";
+
+// Store
+const modelStore = useModelStore();
+const { selectedModel } = storeToRefs(modelStore);
+
+// Mock data
 const models = [
     {
         id: 1,
-        url: 'https://placehold.co/400x600/transparent/A28546.png',
+        url: 'https://placehold.co/400x600/000/A28546.png',
         name: 'Silvie Meis',
     },
     {
