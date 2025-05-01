@@ -10,10 +10,12 @@ export const useFashionStore = defineStore('fashion', () => {
         fashion: [
             {
                 id: 0,
-                url: '',
                 caption: '',
+                image_path: '',
+                image: '',
+                size: '',
+                brand: '',
                 price: '',
-                currency: '',
             },
         ]
     };

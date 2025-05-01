@@ -1,9 +1,12 @@
 export interface FashionStoreFashion {
     id: number,
-    url: string,
-    caption: string,
-    price: string,
     currency: string,
+    caption: string,
+    image_path: string,
+    image: string,
+    size: string,
+    brand: string,
+    price: number,
 }
 
 export interface FashionStoreInitialState {
