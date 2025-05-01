@@ -19,6 +19,7 @@
                     v-for="f in fashion"
                     :url="f.url"
                     :class="'fashion px-0 py-0'"
+                    :image-alt="f.caption"
                     @click="clickHandler(fashion)"
                 >
                     <template #name>

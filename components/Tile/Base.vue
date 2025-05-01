@@ -1,10 +1,10 @@
 <template>
     <div
-        class="model flex flex-col bg-zinc-100 bg-cover bg-no-repeat bg-center border border-slate-300 rounded-lg p-5 aspect-5/3 relative"
+        class="flex flex-col bg-zinc-100 bg-cover bg-no-repeat bg-center border border-slate-300 rounded-lg p-5 aspect-5/3 overflow-hidden relative"
         :class="props.class"
         :id="props.id"
     >
-        <img class="rounded-lg" :src="imageWithFallBack">
+        <img class="w-full h-full object-cover rounded-lg" :src="imageWithFallBack" :alt="props.imageAlt">
         <slot name="name"/>
     </div>
 </template>
@@ -16,6 +16,7 @@ interface Props {
     url?: string;
     disabled?: boolean;
     class?: string;
+    imageAlt?: string;
 }
 
 const props = withDefaults(defineProps<Props>(),{

@@ -12,6 +12,7 @@
                         v-for="model in models"
                         :url="model.url"
                         :class="'model px-0 py-0'"
+                        :image-alt="model.name"
                         @click="clickHandler(model)"
                     >
                         <template #name>

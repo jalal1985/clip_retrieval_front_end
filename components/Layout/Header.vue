@@ -21,7 +21,7 @@
             </nav>
 
             <div class="flex justify-center items-center grow">
-                <NuxtLink to="/" class="text-black no-underline">
+                <NuxtLink to="/" class="great-vibes-regular text-black text-4xl no-underline">
                     Logo
                 </NuxtLink>
             </div>

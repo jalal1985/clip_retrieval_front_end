@@ -1,6 +1,6 @@
 <template>
     <button
-        class="min-h-9 flex border border-slate-300 items-center justify-center bg-sky-500 rounded text-white mb-5 px-4 hover:bg-sky-700 focus:outline-sky-500"
+        class="min-h-9 flex border border-slate-300 items-center justify-center bg-[#a28546] rounded-full text-white mb-5 px-4 hover:bg-black focus:outline-black"
         :autofocus="props.autofocus"
         :class="props.class"
         :disabled="props.disabled"
