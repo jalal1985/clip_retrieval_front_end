@@ -9,20 +9,25 @@ import {
 } from "~/types/ModelStoreInitialState";
 
 
-export const useModelStore = defineStore('model', () => {
+export const useModelStore = defineStore('models', () => {
     const initialState: ModelStoreInitialState = {
-        model: [
+        models: [
             {
                 id: null,
                 url: '',
                 name: '',
             }
         ],
-        selectedModel: null,
+        selectedModel: {
+            id: null,
+            name: '',
+        },
     };
 
-    const model: Ref<ModelStoreModels> = ref(
-        _cloneDeep(initialState.model),
+    // We need to clone the initialState object, otherwise it will be a reference to the initialState object and get
+    // updated when the store is updated.
+    const models: Ref<ModelStoreModels> = ref(
+        _cloneDeep(initialState.models),
     );
 
     const selectedModel: Ref<SelectedModel> = ref(
@@ -30,11 +35,12 @@ export const useModelStore = defineStore('model', () => {
     );
 
     function $reset():void {
-        model.value = _cloneDeep(initialState.model);
+        models.value = _cloneDeep(initialState.model);
+        selectedModel.value = _cloneDeep(initialState.selectedModel);
     }
 
     return {
-        model,
+        models,
         selectedModel,
         $reset,
     }

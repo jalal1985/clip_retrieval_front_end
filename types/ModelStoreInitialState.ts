@@ -5,10 +5,11 @@ export interface ModelStoreModels {
 }
 
 export interface SelectedModel {
-    selectedModel: number | null,
+    id: number | null,
+    name: string,
 }
 
 export interface ModelStoreInitialState {
-    model: ModelStoreModels[];
+    models: ModelStoreModels[];
     selectedModel: SelectedModel;
 }

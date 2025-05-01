@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+%jost {
+    font-family: 'Jost', sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+
+}
+.jost-thin {
+    @extend %jost;
+    font-weight: 300;
+}
+
+.jost-regular {
+    @extend %jost;
+    font-weight: 400;
+}
+
+.great-vibes-regular {
+    font-family: "Great Vibes", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
