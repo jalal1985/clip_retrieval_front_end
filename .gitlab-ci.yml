@@ -25,7 +25,6 @@
     script:
       - >
         curl -X POST
-        -H "Authorization: Bearer $AZURE_STATIC_WEB_APPS_TOKEN"
         -d '{}'
         "$AZURE_DEPLOY_HOOK_URL"
     rules:
@@ -40,7 +39,6 @@
       - echo "Rolling back to previous successful build..."
       - >
         curl -X POST
-        -H "Authorization: Bearer $AZURE_STATIC_WEB_APPS_TOKEN"
         -d '{}' 
         "$AZURE_DEPLOY_HOOK_URL"
     rules:
