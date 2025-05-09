@@ -7,13 +7,6 @@
     paths:
       - node_modules/
 
-  validate:
-    stage: build
-    script:
-      - echo "No tests yet - placeholder for future CI events"
-    rules:
-      - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && $CI_COMMIT_REF_NAME == "main"'
-
   build:
     stage: build
     script:
@@ -26,8 +19,6 @@
     rules:
       - if: '$CI_COMMIT_BRANCH == "main" && $CI_PIPELINE_SOURCE == "push"'
         when: manual
-    needs:
-      - validate # build will only run if validate succeeds
 
   deploy:
     stage: deploy
