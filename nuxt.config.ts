@@ -3,6 +3,8 @@ import {defineNuxtConfig} from "nuxt/config";
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+    ssr: true,
+    target: 'static',
     alias: {
         scss: resolve('~/assets/scss'), // Needed for resolving SASS/SCSS variables in the scoped styling
     },
@@ -20,7 +22,8 @@ export default defineNuxtConfig({
     },
     plugins: [
         {
-            src:'~/plugins/fontawesome.ts', mode:'client'
+            src:'~/plugins/fontawesome.ts',
+            mode:'client',
         }
     ],
     app: {
@@ -48,21 +51,11 @@ export default defineNuxtConfig({
             ]
         },
     },
-    // vite: {
-    //     server: {
-    //         hmr: {
-    //             protocol: 'wss',
-    //             host: 'ai_fashion_frontend',
-    //             port: 24678,
-    //             clientPort: 24678,
-    //         },
-    //     },
-    // },
     devServer: {
         host: '0.0.0.0',
         port: 3000,
     },
     nitro: {
-        preset: 'node',
+        preset: 'static',
     }
 })

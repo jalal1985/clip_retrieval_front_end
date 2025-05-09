@@ -1,0 +1,26 @@
+  image: node:18
+  stages:
+    - build
+    - deploy
+
+  cache:
+    paths:
+      - node_modules/
+
+  build:
+    stage: build
+    script:
+      - npm install
+      - npm run build
+    artifacts:
+      paths:
+        - .output/public
+
+  deploy:
+    stage: deploy
+    script:
+      - >
+        curl -X POST
+        -H "Authorization: Bearer $AZURE_STATIC_WEB_APPS_TOKEN"
+        -d '{}'
+        "$AZURE_DEPLOY_HOOK_URL"
