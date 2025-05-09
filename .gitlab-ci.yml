@@ -15,6 +15,8 @@
     artifacts:
       paths:
         - .output/public
+    rules:
+      - if: '$CI_COMMIT_BRANCH == "main"'
 
   deploy:
     stage: deploy
@@ -24,3 +26,5 @@
         -H "Authorization: Bearer $AZURE_STATIC_WEB_APPS_TOKEN"
         -d '{}'
         "$AZURE_DEPLOY_HOOK_URL"
+    rules:
+      - if: '$CI_COMMIT_BRANCH == "main"'
