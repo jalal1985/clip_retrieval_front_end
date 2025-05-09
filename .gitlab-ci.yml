@@ -25,12 +25,11 @@
     script:
       - >
         curl -X POST
-        -H "Authorization: Bearer $AZURE_STATIC_WEB_APPS_TOKEN"
         -d '{}'
         "$AZURE_DEPLOY_HOOK_URL"
     rules:
       - if: '$CI_COMMIT_BRANCH == "main" && $CI_PIPELINE_SOURCE == "push"'
-        when: manual
+        when: on_success
     needs:
       - build # only deploy if build succeeds
 
@@ -40,7 +39,6 @@
       - echo "Rolling back to previous successful build..."
       - >
         curl -X POST
-        -H "Authorization: Bearer $AZURE_STATIC_WEB_APPS_TOKEN"
         -d '{}' 
         "$AZURE_DEPLOY_HOOK_URL"
     rules:
