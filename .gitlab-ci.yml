@@ -7,6 +7,13 @@
     paths:
       - node_modules/
 
+  validate:
+    stage: build
+    script:
+      - echo "No tests yet - placeholder for future CI events"
+    rules:
+      - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && $CI_COMMIT_REF_NAME == "main"'
+
   build:
     stage: build
     script:
@@ -15,8 +22,12 @@
     artifacts:
       paths:
         - .output/public
+      expire_in: 30 days
     rules:
-      - if: '$CI_COMMIT_BRANCH == "main"'
+      - if: '$CI_COMMIT_BRANCH == "main" && $CI_PIPELINE_SOURCE == "push"'
+        when: manual
+    needs:
+      - validate # build will only run if validate succeeds
 
   deploy:
     stage: deploy
@@ -27,4 +38,22 @@
         -d '{}'
         "$AZURE_DEPLOY_HOOK_URL"
     rules:
+      - if: '$CI_COMMIT_BRANCH == "main" && $CI_PIPELINE_SOURCE == "push"'
+        when: manual
+    needs:
+      - build # only deploy if build succeeds
+
+  rollback:
+    stage: deploy
+    script:
+      - echo "Rolling back to previous successful build..."
+      - >
+        curl -X POST
+        -H "Authorization: Bearer $AZURE_STATIC_WEB_APPS_TOKEN"
+        -d '{}' 
+        "$AZURE_DEPLOY_HOOK_URL"
+    rules:
       - if: '$CI_COMMIT_BRANCH == "main"'
+        when: manual
+    dependencies:
+      - build
